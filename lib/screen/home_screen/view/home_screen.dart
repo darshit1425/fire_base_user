@@ -24,6 +24,7 @@ class _Home_ScreenState extends State<Home_Screen> {
 
     isLogin = FirebaseHelper.firebaseHelper.CheckUser();
   }
+
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -114,7 +115,8 @@ class _Home_ScreenState extends State<Home_Screen> {
                     padding: const EdgeInsets.all(10.0),
                     child: GestureDetector(
                       onTap: () {
-                        Get.toNamed("/detalis",arguments: contoller.DataList[index]);
+                        Get.toNamed("/detalis",
+                            arguments: contoller.DataList[index]);
                       },
                       // onLongPress: () {
                       //   // FirebaseHelper.firebaseHelper
@@ -146,7 +148,7 @@ class _Home_ScreenState extends State<Home_Screen> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(17),
                           border:
-                          Border.all(color: Colors.grey.shade800, width: 5),
+                              Border.all(color: Colors.grey.shade800, width: 5),
                           color: Colors.black,
                         ),
                         child: Column(
@@ -167,7 +169,7 @@ class _Home_ScreenState extends State<Home_Screen> {
                             Text(
                               "Price :-${contoller.DataList[index].p_price}",
                               style:
-                              TextStyle(color: Colors.white, fontSize: 18),
+                                  TextStyle(color: Colors.white, fontSize: 18),
                             ),
                             SizedBox(
                               height: 5,
@@ -225,7 +227,9 @@ class _Home_ScreenState extends State<Home_Screen> {
                 itemCount: contoller.DataList.length,
               );
             }
-            return Center(child: CircularProgressIndicator());
+            return Center(
+              child: CircularProgressIndicator(),
+            );
           },
         ),
       ),

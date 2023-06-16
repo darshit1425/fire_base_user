@@ -1,6 +1,9 @@
 import 'package:fire_base_user/screen/home_screen/model/home_model.dart';
+import 'package:fire_base_user/utils/fire_base_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../images/font_style.dart';
 
 class Details_product extends StatefulWidget {
   const Details_product({Key? key}) : super(key: key);
@@ -77,6 +80,50 @@ class _Details_productState extends State<Details_product> {
                           TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     )),
               ),
+              Spacer(),
+              SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    Container(
+                      height: 50,
+                      width: 100,
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.black),
+                          onPressed: () {},
+                          child: Text(
+                            "buy",
+                            style: TextStyle(
+                                fontFamily: semibold,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 22),
+                          )),
+                    ),
+                    Spacer(),
+                    ElevatedButton(
+                        onPressed: () {
+                          FirebaseHelper.firebaseHelper.AddtoCart(
+                            p_image: data.p_image,
+                            p_name: data.p_name,
+                            p_warranty: data.p_warranty,
+                            p_paytypes: data.p_paytypes,
+                            p_notes: data.p_notes,
+                            p_modelno: data.p_modelno,
+                            p_date: data.p_date,
+                            p_price: data.p_price,
+                            p_time: data.p_time,
+                            p_review: data.p_review,
+                          );
+                          Get.back();
+                        },
+                        child: Text("add to cart")),
+                  ],
+                ),
+              )
             ],
           ),
         ),

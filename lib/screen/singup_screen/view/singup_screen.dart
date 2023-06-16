@@ -164,7 +164,7 @@ class _SingUp_ScreenState extends State<SingUp_Screen> {
                       await FirebaseHelper.firebaseHelper.signInWithGoogle();
 
                   if (msg == "Success") {
-                    Get.offAllNamed("/Bottom_screen");
+                    Get.offAllNamed("/Bottom");
                   }
                   // Get.snackbar(
                   //   "$msg",

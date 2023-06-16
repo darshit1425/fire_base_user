@@ -15,7 +15,9 @@ class Bottom_screen extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    var controller = Get.put(HomeController());
+    var controller = Get.put(
+      HomeController(),
+    );
     var navbarItem = [
       BottomNavigationBarItem(
           icon: Image.asset(icHome, width: 26), label: "Home"),
@@ -64,9 +66,15 @@ class Bottom_screen extends GetView<HomeController> {
             onTap: (value) {
               controller.currentNavIndex.value = value;
             },
+
           ),
+
         ),
+
       ),
+
     );
+
   }
+
 }

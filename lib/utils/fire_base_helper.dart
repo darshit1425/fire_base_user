@@ -215,4 +215,63 @@ class FirebaseHelper {
       }
     });
   }
+
+////////////////////////   ADD TO   CART     ////////////////////////////////////
+//////////////////////////
+
+  Future<void> AddtoCart(
+      {p_name,
+      p_notes,
+      p_date,
+      p_time,
+      p_price,
+      p_review,
+      p_warranty,
+      p_paytypes,
+      p_modelno,
+      p_image}) async {
+    User? user = firebaseAuth.currentUser;
+    String uid = user!.uid;
+    await firestore
+        .collection("CartProduct")
+        .doc("$uid")
+        .collection("cart")
+        .add(
+      {
+        "p_name": p_name,
+        "p_notes": p_notes,
+        "p_date": p_date,
+        "p_time": p_time,
+        "p_price": p_price,
+        "p_review": p_review,
+        "p_warranty": p_warranty,
+        "p_paytypes": p_paytypes,
+        "p_modelno": p_modelno,
+        "p_image": p_image,
+      },
+    );
+  }
+
+  Stream<QuerySnapshot<Map<String, dynamic>>> GetCartData() {
+    User? user = firebaseAuth.currentUser;
+    var uid = user!.uid;
+
+    return firestore
+        .collection("CartProduct")
+        .doc("$uid")
+        .collection("cart")
+        .snapshots();
+  }
+
+  Future<void> deleteCartdata(String key) async {
+    User? user = firebaseAuth.currentUser;
+    var uid = user!.uid;
+
+    await firestore
+        .collection("CartProduct")
+        .doc("$uid")
+        .collection("cart")
+        .doc(key)
+        .delete();
+  }
 }

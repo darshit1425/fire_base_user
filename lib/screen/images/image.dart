@@ -48,3 +48,13 @@ const icTwitterLogo = "assets/icons/twitter_logo.png";
 const icWallet = "assets/icons/wallet.png";
 const icWhiteTick = "assets/icons/white_tick.png";
 const icWholeSale = "assets/icons/wholesale.png";
+
+
+
+///////////////////////////////   assets///////////////
+
+
+const imgSlider1 = "assets/images/slider_1.png";
+const imgSlider2 = "assets/images/slider_2.png";
+const imgSlider3 = "assets/images/slider_3.png";
+const imgSlider4 = "assets/images/slider_4.png";

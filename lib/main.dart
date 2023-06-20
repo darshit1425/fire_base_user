@@ -2,6 +2,7 @@ import 'package:fire_base_user/screen/account_screen/view/account_screen.dart';
 import 'package:fire_base_user/screen/bottom_screen/view/bottom_screen.dart';
 import 'package:fire_base_user/screen/cart_screen/view/cart_screen.dart';
 import 'package:fire_base_user/screen/razor_pay/view/razor_screen.dart';
+import 'package:fire_base_user/screen/splsh_screen/view/splsh_screeen.dart';
 import 'package:fire_base_user/utils/notificaton_helper.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
@@ -22,12 +23,15 @@ Future<void> main() async {
 
   runApp(
     GetMaterialApp(
-      // initialRoute: "/RZ",
+      initialRoute: '/',
       debugShowCheckedModeBanner: false,
       getPages: [
-
         GetPage(
           name: '/',
+          page: () => Splash_Screen(),
+        ),
+        GetPage(
+          name: '/login',
           page: () => Login_Screen(),
         ),
         GetPage(
@@ -58,8 +62,7 @@ Future<void> main() async {
           name: '/Acco',
           page: () => Account_Screen(),
         ),
-
-    ],
+      ],
     ),
   );
 }

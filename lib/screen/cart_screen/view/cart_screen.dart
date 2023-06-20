@@ -20,7 +20,15 @@ class _Cart_screenState extends State<Cart_screen> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Cart"),
+          backgroundColor: Colors.black,
+          elevation: 0,
+          centerTitle: true,
+          title: Text(
+            "Cart",
+            style: TextStyle(
+                color: Colors.white, fontWeight: FontWeight.w500, fontSize: 20),
+          ),
+          leading: Icon(Icons.shopping_bag_outlined),
         ),
         body: StreamBuilder(
           stream: FirebaseHelper.firebaseHelper.GetCartData(),
@@ -67,7 +75,7 @@ class _Cart_screenState extends State<Cart_screen> {
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 10,
-                  mainAxisExtent: 350,
+                  mainAxisExtent: 225,
                 ),
                 itemBuilder: (context, index) {
                   return Padding(
@@ -82,70 +90,69 @@ class _Cart_screenState extends State<Cart_screen> {
                       child: Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(17),
-                          border: Border.all(color: Colors.blue, width: 5),
-                          color: Colors.black,
+                          border: Border.all(color: Colors.black, width: 1.5),
+                          color: Colors.white,
                         ),
                         child: Column(
                           children: [
-                            SizedBox(
-                              height: 12,
-                            ),
                             Text(
-                              "Name :-${contoller.CartList[index].p_name}",
+                              "${contoller.CartList[index].p_name}",
                               style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.white),
+                                  color: Colors.black),
                             ),
                             SizedBox(
                               height: 5,
                             ),
                             Text(
-                              "Price :-${contoller.CartList[index].p_price}",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 18),
+                              "${contoller.CartList[index].p_price}",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w500),
                             ),
                             SizedBox(
-                              height: 5,
+                              height: 15,
                             ),
-                            Text(
-                              "Transiction :-${contoller.CartList[index].p_paytypes}",
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            Text(
-                              "Notes :-${contoller.CartList[index].p_notes}",
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            Text(
-                              "Review :-${contoller.CartList[index].p_review}",
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            Text(
-                              "ModelNo :-${contoller.CartList[index].p_modelno}",
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            Text(
-                              "Date :-${contoller.CartList[index].p_date}",
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            Text(
-                              "Time :-${contoller.CartList[index].p_time}",
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
+                            // Text(
+                            //   "Transiction :-${contoller.CartList[index].p_paytypes}",
+                            //   style: TextStyle(color: Colors.white),
+                            // ),
+                            // Text(
+                            //   "Notes :-${contoller.CartList[index].p_notes}",
+                            //   style: TextStyle(color: Colors.white),
+                            // ),
+                            // Text(
+                            //   "Review :-${contoller.CartList[index].p_review}",
+                            //   style: TextStyle(color: Colors.white),
+                            // ),
+                            // Text(
+                            //   "ModelNo :-${contoller.CartList[index].p_modelno}",
+                            //   style: TextStyle(color: Colors.white),
+                            // ),
+                            // Text(
+                            //   "Date :-${contoller.CartList[index].p_date}",
+                            //   style: TextStyle(color: Colors.white),
+                            // ),
+                            // Text(
+                            //   "Time :-${contoller.CartList[index].p_time}",
+                            //   style: TextStyle(color: Colors.white),
+                            // ),
+                            // SizedBox(
+                            //   height: 10,
+                            // ),
                             Column(
                               children: [
-                                Text(
-                                  "Image",
-                                  style: TextStyle(color: Colors.white),
-                                ),
+                                // Text(
+                                //   "Image",
+                                //   style: TextStyle(color: Colors.white),
+                                // ),
                                 Image.network(
                                   "${contoller.CartList[index].p_image}",
                                   fit: BoxFit.contain,
-                                  height: 120,
-                                  width: 120,
+                                  height: 125,
+                                  width: 135,
                                 ),
                               ],
                             ),

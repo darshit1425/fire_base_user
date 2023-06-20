@@ -1,12 +1,10 @@
 import 'dart:async';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fire_base_user/screen/home_screen/list/lists.dart';
 import 'package:fire_base_user/screen/home_screen/model/home_model.dart';
 import 'package:fire_base_user/screen/images/colors.dart';
+import 'package:fire_base_user/screen/images/font_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../utils/fire_base_helper.dart';
 import '../controller/home_controller.dart';
 
@@ -73,11 +71,15 @@ class _Home_ScreenState extends State<Home_Screen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.black,
         appBar: AppBar(
           elevation: 0,
           centerTitle: true,
-          backgroundColor: Colors.red,
-          title: Text("Flipkart"),
+          backgroundColor: Colors.black,
+          title: Text(
+            "E-commerce",
+            style: TextStyle(fontFamily: regular, fontWeight: FontWeight.w700,fontSize: 22),
+          ),
         ),
         drawer: Drawer(
           child: Padding(
@@ -133,7 +135,7 @@ class _Home_ScreenState extends State<Home_Screen> {
                       filled: true,
                       fillColor: Colors.white,
                       hintText: "Search anything....",
-                      hintStyle: const TextStyle(color: Colors.black12),
+                      hintStyle: const TextStyle(color: Colors.black),
                     ),
                   ),
                 ),
@@ -210,12 +212,12 @@ class _Home_ScreenState extends State<Home_Screen> {
                       return GridView.builder(
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
-                          crossAxisSpacing: 10,
-                          mainAxisExtent: 350,
+                          crossAxisSpacing: 5,
+                          mainAxisExtent: 220,
                         ),
                         itemBuilder: (context, index) {
                           return Padding(
-                            padding: const EdgeInsets.all(10.0),
+                            padding: const EdgeInsets.all(8.0),
                             child: GestureDetector(
                               onTap: () {
                                 Get.toNamed("/detalis",
@@ -251,28 +253,46 @@ class _Home_ScreenState extends State<Home_Screen> {
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(17),
                                   border:
-                                      Border.all( width: 5),
-                                  color: Color(0xffC1B2AD),
+                                      Border.all(width: 1.5, color: Colors.grey.shade400),
+                                  color: Colors.white,
                                 ),
                                 child: Column(
                                   children: [
+                                    Column(
+                                      children: [
+                                        // Text(
+                                        //   "Image",
+                                        //   style: TextStyle(color: Colors.white),
+                                        // ),
+                                        Image.network(
+                                          "${contoller.DataList[index].p_image}",
+                                          fit: BoxFit.contain,
+                                          height: 125,
+                                          width: 135,
+                                        ),
+                                      ],
+                                    ),
+
                                     SizedBox(
-                                      height: 12,
+                                      height: 10,
                                     ),
                                     Text(
-                                      "Name :-${contoller.DataList[index].p_name}",
+                                      "${contoller.DataList[index].p_name}",
                                       style: TextStyle(
-                                          fontSize: 20,
+                                          fontSize: 18,
                                           fontWeight: FontWeight.bold,
-                                          color: Colors.white),
+                                          fontFamily: regular,
+                                          color: Colors.black),
                                     ),
                                     SizedBox(
                                       height: 5,
                                     ),
                                     Text(
-                                      "Price :-${contoller.DataList[index].p_price}",
+                                      "${contoller.DataList[index].p_price}",
                                       style: TextStyle(
-                                          color: Colors.white, fontSize: 18),
+                                          color: Colors.black,
+                                          fontSize: 14,
+                                          fontFamily: semibold),
                                     ),
                                     // SizedBox(
                                     //   height: 5,
@@ -304,20 +324,7 @@ class _Home_ScreenState extends State<Home_Screen> {
                                     SizedBox(
                                       height: 10,
                                     ),
-                                    Column(
-                                      children: [
-                                        Text(
-                                          "Image",
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                        Image.network(
-                                          "${contoller.DataList[index].p_image}",
-                                          fit: BoxFit.contain,
-                                          height: 120,
-                                          width: 120,
-                                        ),
-                                      ],
-                                    ),
+
                                     SizedBox(
                                       height: 12,
                                     ),

@@ -274,4 +274,5 @@ class FirebaseHelper {
         .doc(key)
         .delete();
   }
+
 }

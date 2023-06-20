@@ -13,7 +13,13 @@ class _Category_ScreenState extends State<Category_Screen> {
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
-        title: Text("category"),
+        elevation: 0,
+        backgroundColor: Colors.black,
+        centerTitle: true,
+        title: Text(
+          "Category",
+          style: TextStyle(),
+        ),
       ),
     ));
   }
